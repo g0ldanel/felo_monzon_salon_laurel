@@ -1,0 +1,46 @@
+/ Navigation
+%nav.navbar.navbar-expand-lg.navbar-dark.navbar-custom.fixed-top
+  .container
+    %a.navbar-brand{:href => "#"} Salon Laurel
+    %button.navbar-toggler{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarResponsive.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        %li.nav-item
+          %a.nav-link{:href => "#menu"} Menu de la Semana
+        %li.nav-item
+          %a.nav-link{:href => "#reservas"} Reservas
+        %li.nav-item
+          %a.nav-link{:href => "#"} Log In
+%header.masthead.text-center.text-white
+  .masthead-content
+    .container
+      %h1.masthead-heading.mb-0 Salon Laurel
+      %h3.mb-0 Instituto Felo Monzon
+      / %a.btn.btn-primary.btn-xl.rounded-pill.mt-5{:href => "#"} Learn More
+%section#menu
+  .container
+    .row.align-items-center
+      .col-lg-8.col-xs-12
+        .p-5
+          %h4 Menu Miercoles
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
+%section
+  .container
+    .row.align-items-center
+      .col-lg-8.col-xs-12
+        .p-5
+          %h4 Menu Jueves
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
+%section#reservas
+  .container
+    .row.align-items-center
+      .col-lg-12.order-lg-1
+        .p-5
+          %h4 Reservas
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
+/ Footer
+%footer.py-5.bg-black
+  .container
+    %p.m-0.text-center.text-white.small Copyright &#169; Felo 2019
+  / /.container
