@@ -11,27 +11,60 @@
         %li.nav-item
           %a.nav-link{:href => "#reservas"} Reservas
         %li.nav-item
-          %a.nav-link{:href => "#"} Log In
+          - if user_signed_in?
+            %a.nav-link.small
+              %small{:href => "#"}=current_user.email
+          - else
+            =link_to "Log In", new_user_session_path, class: "nav-link"
 %header.masthead.text-center.text-white
   .masthead-content
     .container
       %h1.masthead-heading.mb-0 Salon Laurel
       %h3.mb-0 Instituto Felo Monzon
       / %a.btn.btn-primary.btn-xl.rounded-pill.mt-5{:href => "#"} Learn More
+%section#who-are-we
+  .container
+    .row.align-items-center
+      .col-lg-12q
+        .p-5
+          %h4 Quienes somos?
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
+      %hr.col-md-12/
 %section#menu
   .container
-    .row.align-items-center
-      .col-lg-8.col-xs-12
-        .p-5
-          %h4 Menu Miercoles
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
-%section
-  .container
-    .row.align-items-center
-      .col-lg-8.col-xs-12
-        .p-5
-          %h4 Menu Jueves
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
+    .row
+      .col-lg-6.col-xs-12
+        .p-3.daily-menu
+          %h4.text-center Menu Miercoles
+          %hr/
+          .font-weight-bold.first.dish Primer plato
+          %ul
+            %li=phrase("Sopa (A 6)")
+            %li=phrase("Crema (A 2)")
+            %li=phrase("Ensalada (A 4)")
+            %li=phrase("Gazpacho (A 2)")
+          .font-weight-bold.second.dish Segundo plato
+          %ul
+            %li Pescado (A 3)
+            %li Carne (A 1)
+            %li Arroz (A 2)
+            %li Pasta (A 9)
+      .col-lg-6.col-xs-12
+        .p-3.daily-menu
+          %h4.text-center Menu Jueves
+          %hr/
+          .font-weight-bold.first.dish Primer plato
+          %ul
+            %li Sopa (A 6)
+            %li Crema (A 2)
+            %li Ensalada (A 4)
+            %li Gazpacho (A 2)
+          .font-weight-bold.second.dish Segundo plato
+          %ul
+            %li Pescado (A 3)
+            %li Carne (A 1)
+            %li Arroz (A 2)
+            %li Pasta (A 9)
 %section#reservas
   .container
     .row.align-items-center

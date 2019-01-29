@@ -30,8 +30,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-custom {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
   background-color: rgba(0, 0, 0, 0.7);
   .navbar-brand {
     text-transform: uppercase;
@@ -44,6 +44,15 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.1rem;
+  }
+}
+.daily-menu{
+    background-color: #d2d2d299;
+    border-radius: 25px;
+  .dish{
+    text-align: center;
+    // text-decoration: underline;
+    color: #8d3859;
   }
 }
 

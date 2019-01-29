@@ -1,12 +1,5 @@
 module PhrasingHelper
-  # You must implement the can_edit_phrases? method.
-  # Example:
-  #
-  # def can_edit_phrases?
-  #  current_user.is_admin?
-  # end
-
   def can_edit_phrases?
-    raise NotImplementedError.new("You must implement the can_edit_phrases? method")
+   user_signed_in? #only editors can sign in, so anyone signed in is a verified editor.
   end
 end
