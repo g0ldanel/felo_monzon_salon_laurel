@@ -1,5 +1,4 @@
 class WebController < ApplicationController
-  before_action :check_permissions, except: [:new, :create]
 
   def index
     @rsvp = Rsvp.new
