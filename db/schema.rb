@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190127160507) do
+ActiveRecord::Schema.define(version: 20190130094540) do
 
   create_table "phrasing_phrase_versions", force: :cascade do |t|
     t.integer "phrasing_phrase_id"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20190127160507) do
     t.text "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rsvps", force: :cascade do |t|
+    t.datetime "rsvp_date", null: false
+    t.integer "pax", default: 1
+    t.string "name", null: false
+    t.string "telephone", null: false
   end
 
   create_table "users", force: :cascade do |t|
