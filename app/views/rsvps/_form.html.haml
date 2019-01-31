@@ -1,47 +1,38 @@
-= form_for @rsvp do |f|
-  - if @rsvp.errors.any?
-    #error_explanation
-      %h2= "Se han encontrado #{pluralize(@rsvp.errors.count, "error")} errores:"
-      %ul
-        - @rsvp.errors.full_messages.each do |message|
-          %li= message
+.row.justify-content-center
+  .col-md-4.border.m-3
+    = form_for @rsvp do |f|
+      - if @rsvp.errors.any?
+        #error_explanation
+          %h2= "Se han encontrado #{(@rsvp.errors.count)} errores:"
+          %ul
+            - @rsvp.errors.full_messages.each do |message|
+              %li= message
 
-  .form-group
-    %label{:for => "nombre"} Nombre
-    = f.text_field :name, id: "nombre", class: "form-control", required: true
-    %small#nombre.form-text.text-muted Introduzca un nombre para la reserva
+      .form-group
+        %label{:for => "nombre"} Nombre
+        = f.text_field :name, id: "nombre", class: "form-control", required: true
+        %small#nombre.form-text.text-muted Introduzca un nombre para la reserva
 
-  .form-group
-    %label{:for => "rsvp_date"} Fecha de Reserva
-    =f.text_field :rsvp_date, id: "rsvp_date", class: "form-control", required: true, type: "date"
-    %small#rsvp_date.form-text.text-muted Introduzca una fecha para la reserva
+      .form-group
+        %label{:for => "rsvp_date"} Fecha de Reserva
+        =f.text_field :rsvp_date, id: "rsvp_date", class: "form-control", required: true
+        %small#rsvp_date_help.form-text.text-muted Introduzca una fecha para la reserva
 
-  .form-group
-    %label{:for => "pax"} Pax de la Reserva
-    =f.text_field :pax, id: "pax", class: "form-control", required: true, type: "number", value: 1
-    %small#pax.form-text.text-muted Introduzca para cuántas personas es la reserva
+      .form-group
+        %label{:for => "rsvp_time"} Hora de Reserva
+        =f.select :rsvp_time, options_for_select(['14:00', '14:15', '14:30', '14:45', '15:00', '15:15', '15:30', '15:45'], selected: @rsvp.rsvp_time.strftime("%H:%M")),{}, {id: "rsvp_time", class: "form-control", required: true}
+        %small#rsvp_time.form-text.text-muted Introduzca una hora para la reserva
 
-  .form-group
-    %label{:for => "telephone"} Teléfono de contacto para la Reserva
-    =f.text_field :telephone, id: "telephone", class: "form-control", required: true, type: "telephone"
-    %small#telephone.form-text.text-muted Introduzca un teléfono de contacto para cualquier consulta relacionada con la rserva
-  .row.justify-content-center= f.submit 'Reservar', class:"btn-xl btn-primary"
+      .form-group
+        %label{:for => "pax"} Pax de la Reserva
+        =f.text_field :pax, id: "pax", class: "form-control", required: true, type: "number", value: 1
+        %small#pax.form-text.text-muted Introduzca para cuántas personas es la reserva
 
+      .form-group
+        %label{:for => "telephone"} Teléfono de contacto para la Reserva
+        =f.text_field :telephone, id: "telephone", class: "form-control", required: true, type: "telephone"
+        %small#telephone.form-text.text-muted Introduzca un teléfono de contacto para cualquier consulta relacionada con la rserva
+      .row.justify-content-center= f.submit 'Reservar', class:"btn-xl btn-primary"
 
+    .row.justify-content-right= link_to 'Cancelar', root_path, class:"btn btn-warning"
 
-.row.justify-content-right= link_to 'Cancelar', root_path, class:"btn btn-warning"
-
-
-
-
-
-
-
-
--# .form-group
--#   %label{:for => "exampleInputPassword1"} Password
--#   %input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
--# .form-check
--#   %input#exampleCheck1.form-check-input{:type => "checkbox"}/
--#   %label.form-check-label{:for => "exampleCheck1"} Check me out
--# %button.btn.btn-primary{:type => "submit"} Submit

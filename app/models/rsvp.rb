@@ -4,7 +4,9 @@ class Rsvp < ApplicationRecord
   validates :name, presence: true
   validates :telephone, presence: true, length: {in: 9..15}
 
-
+  # def rsvp_date
+  #   self[:rsvp_date].strftime("%d/%m/%Y")
+  # end
 
 private
 

@@ -1,7 +1,6 @@
-%h1 Editing rsvp
-
+.row.justify-content-center
+  .col-md-4.border.m-3
+    %h1 Editar Reserva
 = render 'form'
 
-= link_to 'Show', @rsvp
-\|
-= link_to 'Back', rsvps_path
+= link_to 'Reservas', rsvps_path, class: "btn btn-primary"

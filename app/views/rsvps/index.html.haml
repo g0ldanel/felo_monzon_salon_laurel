@@ -1,19 +1,39 @@
-%h1 Listing rsvps
+.row
+  .col-md-12
+    .h1.text-center
+      Reservas activas
+      - if @active
+        =link_to "Ver todas", rsvps_path(active:false), class: "btn btn-success"
+      - else
+        =link_to "Ver activas", rsvps_path(active:true), class: "btn btn-success"
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
+.row
+  .col.text-center
+    .table-responsive
+      %table.table.table-bordered.text-center
+        %thead
+          %tr{scope: "row"}
+            %th{scope: "col"} Nombre
+            %th{scope: "col"} Pax
+            %th{scope: "col"} Día y Hora
+            %th{scope: "col"} Teléfono
+            %th{scope: "col", colspan: 2}
 
-  %tbody
-    - @rsvps.each do |rsvp|
-      %tr
-        %td= link_to 'Show', rsvp
-        %td= link_to 'Edit', edit_rsvp_path(rsvp)
-        %td= link_to 'Destroy', rsvp, method: :delete, data: { confirm: 'Are you sure?' }
+        %tbody
+          - @rsvps.each do |rsvp|
+            %tr{scope: "row"}
+              %td{scope: "col"}= rsvp.name
+              %td{scope: "col"}= rsvp.pax
+              %td{scope: "col"}="#{rsvp.rsvp_date.strftime("%a %d/%m")} #{rsvp.rsvp_time.strftime("%H:%M")}"
+              %td{scope: "col"}= rsvp.telephone
+              %td{scope: "col"}
+                =link_to edit_rsvp_path(rsvp) do
+                  =image_tag "svg/pencil.svg", width: "16px"
+              %td{scope: "col"}
+                = link_to rsvp, method: :delete, data: { confirm: '¿Está seguro de eliminar esta reserva?' } do
+                  =image_tag "svg/x.svg", width: "16px"
 
-%br
 
-= link_to 'New Rsvp', new_rsvp_path
+%br/
+
+= link_to 'Nueva Reserva', new_rsvp_path, class: "btn btn-success"

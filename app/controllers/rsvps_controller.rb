@@ -1,8 +1,15 @@
 class RsvpsController < ApplicationController
   before_action :check_permissions, except: [:new, :create]
+  before_action :set_rsvp, only: [:show, :edit, :update, :destroy]
+
 
   def index
-    @rsvps = Rsvp.all
+    @active = params[:active] == "true" ? true : false
+    if @active == true
+      @rsvps = Rsvp.where("rsvp_date >= ?", Date.today).order(:rsvp_date, :rsvp_time)
+    else
+      @rsvps = Rsvp.all
+    end
   end
 
   def new
@@ -19,8 +26,33 @@ class RsvpsController < ApplicationController
       end
     end
   end
-private
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @rsvp.update(rsvp_params)
+        flash[:notice] =  'La reserva se ha actualizado.'
+        format.html { redirect_to action: :index }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+  def destroy
+    @rsvp.destroy
+    respond_to do |format|
+      flash[:notice] =  'La reserva se ha eliminado.'
+      format.html { redirect_to action: :index }
+    end
+  end
+
+private
+  def set_rsvp
+    @rsvp = Rsvp.find(params[:id])
+  end
 
   def check_permissions
     unless user_signed_in?
@@ -30,6 +62,6 @@ private
   end
 
   def rsvp_params
-    params.require(:rsvp).permit(:name, :rsvp_date, :pax, :telephone)
+    params.require(:rsvp).permit(:name, :rsvp_date, :pax, :telephone, :rsvp_time)
   end
 end

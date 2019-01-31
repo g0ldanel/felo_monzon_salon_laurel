@@ -1,33 +1,32 @@
 / Navigation
 %nav.navbar.navbar-expand-lg.navbar-dark.navbar-custom.fixed-top
   .container
-    %a.navbar-brand{:href => "#"} Salon Laurel
+    %a.navbar-brand{:href => "#"} Salón Laurel
     %button.navbar-toggler{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarResponsive.collapse.navbar-collapse
       %ul.navbar-nav.ml-auto
         %li.nav-item
-          %a.nav-link{:href => "#menu"} Menu de la Semana
+          %a.nav-link{:href => "#menu"} Menú de la Semana
         %li.nav-item
           %a.nav-link{:href => "#reservas"} Reservas
         %li.nav-item
           - if user_signed_in?
-            %a.nav-link.small
-              %small{:href => "#"}=current_user.email
+            %small=link_to "Gestión", rsvps_path, class: "nav-link small"
           - else
             =link_to "Log In", new_user_session_path, class: "nav-link"
 %header.masthead.text-center.text-white
   .masthead-content
     .container
-      %h1.masthead-heading.mb-0 Salon Laurel
-      %h3.mb-0 Instituto Felo Monzon
+      %h1.masthead-heading.mb-0 Salón Laurel
+      %h3.mb-0 Instituto Felo Monzón
       / %a.btn.btn-primary.btn-xl.rounded-pill.mt-5{:href => "#"} Learn More
 %section#who-are-we
   .container
     .row.align-items-center
-      .col-lg-12q
+      .col-lg-12
         .p-5
-          %h4 Quienes somos?
+          %h4 ¿Quienes somos?
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
       %hr.col-md-12/
 %section#menu
@@ -35,36 +34,36 @@
     .row
       .col-lg-6.col-xs-12
         .p-3.daily-menu
-          %h4.text-center Menu Miercoles
+          %h4.text-center Menú Miércoles
           %hr/
           .font-weight-bold.first.dish Primer plato
           %ul
-            %li=phrase("Sopa (A 6)")
-            %li=phrase("Crema (A 2)")
-            %li=phrase("Ensalada (A 4)")
-            %li=phrase("Gazpacho (A 2)")
+            %li=phrase("plato_m 1.1")
+            %li=phrase("plato_m 1.2")
+            %li=phrase("plato_m 1.3")
+            %li=phrase("plato_m 1.4")
           .font-weight-bold.second.dish Segundo plato
           %ul
-            %li=phrase ("Pescado (A 3)")
-            %li=phrase ("Carne (A 1)")
-            %li=phrase ("Arroz (A 2)")
-            %li=phrase ("Pasta (A 9)")
+            %li=phrase ("plato_m 2.1")
+            %li=phrase ("plato_m 2.2")
+            %li=phrase ("plato_m 2.3")
+            %li=phrase ("plato_m 2.4")
       .col-lg-6.col-xs-12
         .p-3.daily-menu
-          %h4.text-center Menu Jueves
+          %h4.text-center Menú Jueves
           %hr/
           .font-weight-bold.first.dish Primer plato
           %ul
-            %li=phrase ("Sopa (A 6)")
-            %li=phrase ("Crema (A 2)")
-            %li=phrase ("Ensalada (A 4)")
-            %li=phrase ("Gazpacho (A 2)")
+            %li=phrase("plato_x 1.1")
+            %li=phrase("plato_x 1.2")
+            %li=phrase("plato_x 1.3")
+            %li=phrase("plato_x 1.4")
           .font-weight-bold.second.dish Segundo plato
           %ul
-            %li=phrase ("Pescado (A 3)")
-            %li=phrase ("Carne (A 1)")
-            %li=phrase ("Arroz (A 2)")
-            %li=phrase ("Pasta (A 9)")
+            %li=phrase ("plato_x 2.1")
+            %li=phrase ("plato_x 2.2")
+            %li=phrase ("plato_x 2.3")
+            %li=phrase ("plato_x 2.4")
 %section#reservas
   .container
     .row.align-items-center
