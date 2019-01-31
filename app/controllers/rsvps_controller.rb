@@ -18,12 +18,17 @@ class RsvpsController < ApplicationController
 
   def create
     @rsvp = Rsvp.new(rsvp_params)
-    respond_to do |format|
-      if @rsvp.save
-        format.html { redirect_to root_path}
-      else
-        format.html { render action: :new }
+    if verify_recaptcha
+      respond_to do |format|
+        if @rsvp.save
+          format.html { redirect_to root_path}
+        else
+          format.html { render action: :new }
+        end
       end
+    else
+      @rsvp.errors.add :name, "Debe resolver el captcha primero"
+      render action: :new
     end
   end
 

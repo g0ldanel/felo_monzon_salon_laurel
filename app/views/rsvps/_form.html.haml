@@ -32,6 +32,11 @@
         %label{:for => "telephone"} Teléfono de contacto para la Reserva
         =f.text_field :telephone, id: "telephone", class: "form-control", required: true, type: "telephone"
         %small#telephone.form-text.text-muted Introduzca un teléfono de contacto para cualquier consulta relacionada con la rserva
+
+
+
+      = recaptcha_tags
+      %br/
       .row.justify-content-center= f.submit 'Reservar', class:"btn-xl btn-primary"
 
     .row.justify-content-right= link_to 'Cancelar', root_path, class:"btn btn-warning"
