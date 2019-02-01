@@ -1,12 +1,21 @@
 .row
   .col-md-12
     .h1.text-center
+      = link_to 'Nueva Reserva', new_rsvp_path, class: "btn btn-success"
       Reservas activas
       - if @active
-        =link_to "Ver todas", rsvps_path(active:false), class: "btn btn-success"
+        =link_to "Ver todas", rsvps_path(active:false), class: "btn btn-primary"
       - else
-        =link_to "Ver activas", rsvps_path(active:true), class: "btn btn-success"
-
+        =link_to "Ver activas", rsvps_path(active:true), class: "btn btn-primary"
+.row.small
+  .col.h5.text-center
+    ="Martes #{next_weekday.strftime("%d/%m")}"
+    %br/
+    =" #{spots_for_next("Tue")} plazas libres"
+  .col.h5.text-center
+    ="Miércoles #{next_weekday.strftime("%d/%m")}"
+    %br/
+    =" #{spots_for_next("Wed")} plazas libres"
 .row
   .col.text-center
     .table-responsive
@@ -36,4 +45,3 @@
 
 %br/
 
-= link_to 'Nueva Reserva', new_rsvp_path, class: "btn btn-success"
