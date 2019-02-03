@@ -1,7 +1,6 @@
 class WebController < ApplicationController
 
   def index
-    @rsvp = Rsvp.new
   end
 
 
