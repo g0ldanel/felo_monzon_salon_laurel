@@ -28,6 +28,7 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV.fetch("DATABASE_URL") %>
+  host: <%= ENV.fetch("DATABASE_HOST")  %>
+  database: <%= ENV.fetch("DATABASE") %>
   username: <%= ENV.fetch("POSTGRES_USER") %>
   password: <%= ENV.fetch("POSTGRES_PWD") %>
