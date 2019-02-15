@@ -19,7 +19,7 @@ class RsvpsController < ApplicationController
   def create
     @rsvp = Rsvp.new(rsvp_params)
     if verify_recaptcha
-      unless helpers.free_spots(@rsvp.rsvp_date) >= @rsvp.pax
+      if helpers.free_spots(@rsvp.rsvp_date) >= @rsvp.pax
         respond_to do |format|
           if @rsvp.save
             format.html { redirect_to root_path}
