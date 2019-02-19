@@ -4,5 +4,5 @@ $ ->
     weekStart: 1
     startDate: 'today'
     daysOfWeekDisabled: '0,1,4,5,6'
-    daysOfWeekHighlighted: '2,3'
+    daysOfWeekHighlighted: '3,4'
     todayHighlight: true

@@ -18,21 +18,16 @@ class RsvpsController < ApplicationController
 
   def create
     @rsvp = Rsvp.new(rsvp_params)
-    if verify_recaptcha
-      if helpers.free_spots(@rsvp.rsvp_date) >= @rsvp.pax
-        respond_to do |format|
-          if @rsvp.save
-            format.html { redirect_to root_path}
-          else
-            format.html { render action: :new }
-          end
+    if helpers.free_spots(@rsvp.rsvp_date) >= @rsvp.pax
+      respond_to do |format|
+        if @rsvp.save
+          format.html { redirect_to root_path}
+        else
+          format.html { render action: :new }
         end
-      else
-        @rsvp.errors.add :name, "No quedan plazas disponibles para ese día. Lamentamos las molestias."
-        render action: :new
       end
     else
-      @rsvp.errors.add :name, "Debe resolver el captcha primero"
+      @rsvp.errors.add :name, "No quedan plazas disponibles para ese día. Lamentamos las molestias."
       render action: :new
     end
   end
@@ -72,6 +67,6 @@ private
   end
 
   def rsvp_params
-    params.require(:rsvp).permit(:name, :rsvp_date, :pax, :telephone, :rsvp_time)
+    params.require(:rsvp).permit(:name, :rsvp_date, :pax, :telephone, :rsvp_time, "g-recaptcha-response")
   end
 end
