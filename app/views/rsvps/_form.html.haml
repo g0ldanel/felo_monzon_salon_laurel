@@ -3,10 +3,10 @@
     = form_for @rsvp do |f|
       - if @rsvp.errors.any?
         #error_explanation
-          %h2= "Se han encontrado #{(@rsvp.errors.count)} errores:"
+          %h4= "Se han encontrado #{(@rsvp.errors.count)} errores:"
           %ul
-            - @rsvp.errors.full_messages.each do |message|
-              %li= message
+            - @rsvp.errors.messages.each do |message|
+              %li= message[1][0]
 
       .form-group
         %label{:for => "nombre"} Nombre
