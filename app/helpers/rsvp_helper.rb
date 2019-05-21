@@ -4,7 +4,7 @@ module RsvpHelper
     40 - Rsvp.where("rsvp_date = ?", date.strftime("%Y-%m-%d 00:00:00")).sum(:pax)
   end
 
-  def spots_for_next(weekday = "Tue")
+  def spots_for_next(weekday = "Wed")
     40 - Rsvp.where("rsvp_date = ?", next_weekday(weekdays.index weekday).strftime("%Y-%m-%d 00:00:00")).sum(:pax)
   end
 
