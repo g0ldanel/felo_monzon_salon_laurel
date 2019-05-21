@@ -34,9 +34,9 @@
     .row
       .col-lg-6.col-xs-12
         .p-3.daily-menu
-          %h4.text-center Menú Miércoles
+          %h4.text-center="Menú Miércoles #{next_weekday(3).day}"
           .col.h5.text-center
-            =" #{spots_for_next("Tue")} plazas libres"
+            =" #{spots_for_next("Wed")} plazas libres"
           %hr/
           .font-weight-bold.first.dish Primer plato
           %ul
@@ -52,9 +52,9 @@
             %li=phrase ("plato_m 2.4")
       .col-lg-6.col-xs-12
         .p-3.daily-menu
-          %h4.text-center Menú Jueves
+          %h4.text-center="Menú Jueves #{next_weekday(4).day}"
           .col.h5.text-center
-            =" #{spots_for_next("Wed")} plazas libres"
+            =" #{spots_for_next("Thu")} plazas libres"
           %hr/
           .font-weight-bold.first.dish Primer plato
           %ul
