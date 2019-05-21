@@ -18,7 +18,6 @@ class RsvpsController < ApplicationController
 
   def create
     @rsvp = Rsvp.new(rsvp_params)
-    byebug
     if helpers.free_spots(@rsvp.rsvp_date) >= @rsvp.pax
       respond_to do |format|
         if @rsvp.save
